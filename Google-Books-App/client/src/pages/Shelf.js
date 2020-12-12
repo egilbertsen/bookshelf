@@ -9,7 +9,7 @@ import Jumbotron from "../components/Jumbotron";
 
 class Shelf extends Component {
     state = {
-        savedBooks: [],
+        savedBooks: []
     };
 
     componentDidMount() {
@@ -19,7 +19,7 @@ class Shelf extends Component {
     getBooks = () => {
         API.getBooks()
             .then(res =>
-                this.setState({savedBooks: res.data})
+                this.setState({ savedBooks: res.data })
             )
             .catch(err => console.log(err));
     };
@@ -45,7 +45,7 @@ class Shelf extends Component {
                                     <ListItem key={book._id}>
                                         <Row>
                                             <Col size="md-3">
-                                                <div style={{ backgroundImage: "url({book.image}" }}></div>
+                                                <img src={book.volumeInfo.imageLinks.thumbnail} />
                                             </Col>
                                             <Col size="md-9">
                                                 <Link to={book.link}>
@@ -61,7 +61,7 @@ class Shelf extends Component {
                                 ))}
                             </List>
                         ) : (
-                                <h3>No Results to Display</h3>
+                                <div></div>
                             )}
                     </Col>
                 </Row>
