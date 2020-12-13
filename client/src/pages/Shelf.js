@@ -45,7 +45,7 @@ class Shelf extends Component {
                                     <ListItem key={book._id}>
                                         <Row>
                                             <Col size="md-3">
-                                                <img src={book.volumeInfo.imageLinks.thumbnail} />
+                                                <img src={book.image} />
                                             </Col>
                                             <Col size="md-9">
                                                 <Link to={book.link}>

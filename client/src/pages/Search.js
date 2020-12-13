@@ -77,7 +77,7 @@ class Search extends Component {
                                                 <p>Description: {book.volumeInfo.description} </p>
                                                 <SaveBtn onClick={() => this.saveBook({
                                                     title: book.volumeInfo.title,
-                                                    authors: book.volumeInfo.authors,
+                                                    author: book.volumeInfo.authors,
                                                     image: book.volumeInfo.imageLinks.thumbnail,
                                                     description: book.volumeInfo.description,
                                                     link: book.volumeInfo.infoLink
