@@ -1,4 +1,6 @@
 import React from "react";
+import "./font.css";
+import "./App.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Search from "./pages/Search";
 import Shelf from "./pages/Shelf";
