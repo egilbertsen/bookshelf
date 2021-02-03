@@ -1,9 +1,9 @@
 import React from "react";
-import "./App.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Search from "./pages/Search";
-import Shelf from "./pages/Shelf";
+import Books from "./pages/Books";
+import Detail from "./pages/Detail";
 import NoMatch from "./pages/NoMatch";
+import Shelf from "./pages/Shelf";
 import Nav from "./components/Nav";
 
 function App() {
@@ -12,11 +12,14 @@ function App() {
       <div>
         <Nav />
         <Switch>
-          <Route exact path={["/", "/search"]}>
-            <Search />
+          <Route exact path={["/", "/books"]}>
+            <Books />
           </Route>
           <Route exact path="/shelf">
             <Shelf />
+          </Route>
+          <Route exact path="/books/:id">
+            <Detail />
           </Route>
           <Route>
             <NoMatch />
