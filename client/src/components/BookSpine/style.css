@@ -1,0 +1,10 @@
+.bookBox {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    float: left;
+    display: inline;
+    height: 75%;
+    margin-bottom: 30px;
+    border-radius: 6px;
+    color:  #F8E9A1;
+}

@@ -1,19 +1,20 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Books from "./pages/Books";
+import Search from "./pages/Search";
 import Detail from "./pages/Detail";
 import NoMatch from "./pages/NoMatch";
 import Shelf from "./pages/Shelf";
 import Nav from "./components/Nav";
 
+
 function App() {
   return (
     <Router>
-      <div>
+      <div style={{ backgroundColor: `#374785`, backgroundSize: `cover`}}>
         <Nav />
         <Switch>
           <Route exact path={["/", "/books"]}>
-            <Books />
+            <Search />
           </Route>
           <Route exact path="/shelf">
             <Shelf />

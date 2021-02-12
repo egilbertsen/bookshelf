@@ -1,0 +1,10 @@
+.search-button {
+    border-radius: 5px;
+    background-color: #F8E9A1;
+}
+
+
+.noResults {
+    padding-bottom: 100%;
+    color: #F76C7C
+}
