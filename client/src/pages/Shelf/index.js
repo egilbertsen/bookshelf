@@ -41,12 +41,15 @@ class Shelf extends Component {
               <h1>Bookshelf</h1>
             </Jumbotron>
             {this.state.books.length ? (
-              <div>
+              <div className="shelf">
                 {this.state.books.map(book => (
                   <BookSpine 
                     key={book._id}
                     title={book.title}
                     authors={book.authors}
+                    link={book.link}
+                    image = {book.image}
+                    description = {book.description}
                     handleDelete={() => this.handleDelete(book._id)}
                   />  
 

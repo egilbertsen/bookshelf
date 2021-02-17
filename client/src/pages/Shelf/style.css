@@ -1,7 +1,9 @@
 h1 {
-    color:#F8E9A1 
+    color:#324383; 
 }
 
-.bookcase {
-    background-color: #F8E9A1;
+.shelf {
+    padding-top: 10px;
+    padding-left: 10px;
+    background-color: blanchedalmond;
 }

@@ -1,10 +1,53 @@
+h3 {
+    font-size: 20px;
+}
+
 .bookBox {
+    display: inline-block;
+    height: 300px;
+    border-radius: 6px;
+    margin-bottom: 0px;
+
+    
+}
+
+.spineBod {
+    padding-top: 15px;
     writing-mode: vertical-rl;
     text-orientation: mixed;
+    height: 300px;
     float: left;
-    display: inline;
-    height: 75%;
-    margin-bottom: 30px;
     border-radius: 6px;
-    color:  #F8E9A1;
+    border:1px solid #24305E;
+    background-color: #324383;
+    color:#F8E9A1;
+}
+
+.coverBod {
+    height: 300px;
+    width: 400px;
+    overflow: scroll;
+    padding-top: 15px;
+    background-color: #d8ddf0;
+
+}
+.desc {
+    font-style: italic;
+}
+.coverImgHolder {
+    float:left;
+    padding: 10px;
+}
+
+.coverText { 
+    padding: 10px;
+    font-size: 12px;
+}
+
+a {
+    color:#ff6666;
+}
+
+a:hover {
+    color: #990000;
 }
