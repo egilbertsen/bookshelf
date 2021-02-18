@@ -1,6 +1,13 @@
+
+
 .save-btn {
   float: right;
-  color: #1d066e;
-  padding: 3px;
-  border: #1d066e
+  margin: 5px;
+  color:#24305E;
+  font-style: italic;
+
+}
+
+.save-btn:hover {
+  background-color: #F8E9A1;
 }
