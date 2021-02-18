@@ -33,7 +33,7 @@ export default class BookSpine extends Component {
             bookCoverAnimation = {
                 opacity: "1",
                 height: "300px",
-                width: "400px",
+                width: "300px",
                 transition: "all 1s ease"
             }
 
