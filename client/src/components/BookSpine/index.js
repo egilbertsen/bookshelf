@@ -22,31 +22,42 @@ export default class BookSpine extends Component {
     render() {
         let isOpenStyle;
         let bookCoverAnimation;
+        let coverContAnim;
 
         if (this.state.open) {
 
             isOpenStyle = {
-                margin: "5px",
+                marginLeft: "5px",
+                marginRight: "5px",
                 boxShadow: "rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px"
             }
 
             bookCoverAnimation = {
-                opacity: "1",
                 height: "300px",
                 width: "300px",
-                transition: "all 1s ease"
+                transition: "all .5s ease"
+            }
+            
+            coverContAnim = {
+                opacity: "1",
+                transitionDelay: ".4s",
+                transition: "all .5s ease"
             }
 
         } else {
-            
+
             isOpenStyle = { boxShadow: "none" }
 
             bookCoverAnimation = {
                 width: "000px",
                 height: "300px",
-                opacity: "0",
-                transition: "all 1s ease"
+                transitionDelay: ".4s",
+                transition: "all .5s ease"
+            }
 
+            coverContAnim = {
+                opacity: "0",
+                transition: "all .5s ease"
             }
         }
 
@@ -59,8 +70,9 @@ export default class BookSpine extends Component {
                         {this.props.title} by {this.props.authors}
                     </h3>
                 </div>
-                
-                    <div className="coverBod" style={bookCoverAnimation}>
+
+                <div className="coverBod" style={bookCoverAnimation}>
+                    <div className="coverCont" style={coverContAnim}>
                         <div className="coverImgHolder">
                             <img src={this.props.image} className="coverImg" alt="bookcover" />
                         </div>
@@ -74,7 +86,7 @@ export default class BookSpine extends Component {
                             <DeleteBtn onClick={this.props.handleDelete} />
                         </div>
                     </div>
-                
+                </div>
 
             </div>
         )
