@@ -1,10 +1,8 @@
 import React, { Component } from "react";
-import SaveBtn from "../../components/SaveBtn";
 import Jumbotron from "../../components/Jumbotron";
 import API from "../../utils/API";
-import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
-import { List, ListItem } from "../../components/List";
+import SearchedBook from "../../components/SearchedBook";
 import './style.css'
 
 class Search extends Component {
@@ -27,6 +25,7 @@ class Search extends Component {
                     books: res.data.items,
                     query: ""
                 })
+                
             )
             .catch(err => console.log(err));
     };
@@ -62,33 +61,29 @@ class Search extends Component {
                                     <h1>Results: </h1>
                                 </div>
                                 {this.state.books.length ? (
-                                    <List>
+                                    <div>
                                         {this.state.books.map(book => (
-                                            <ListItem key={book._id}>
-                                                <Row>
-                                                    <Col size="md-3">
-                                                        <img src={book.volumeInfo.imageLinks.thumbnail} />
-                                                    </Col>
-                                                    <Col size="md-9">
-                                                        <Link to={book.volumeInfo.infoLink}>
-                                                            <strong>
-                                                                {book.volumeInfo.title} by {book.volumeInfo.authors}
-                                                            </strong>
-                                                        </Link>
-                                                        <p>Description: {book.volumeInfo.description} </p>
-                                                        <SaveBtn onClick={() => this.saveBook({
-                                                            title: book.volumeInfo.title,
-                                                            authors: book.volumeInfo.authors,
-                                                            image: book.volumeInfo.imageLinks.thumbnail,
-                                                            description: book.volumeInfo.description,
-                                                            link: book.volumeInfo.infoLink
-                                                        })} />
-                                                    </Col>
-                                                </Row>
-                                            </ListItem>
+                                            <SearchedBook 
+                                                key={book.id} 
+                                                title={book.volumeInfo.title}
+                                                authors={book.volumeInfo.authors}
+                                                image={book.volumeInfo.imageLinks === undefined ? "" : `${book.volumeInfo.imageLinks.thumbnail}`}
+                                                // error fixed thanks to https://stackoverflow.com/questions/51692323/google-books-api-cannot-read-property-thumbnail-of-undefined
+                                                description={book.volumeInfo.description}
+                                                link = {book.volumeInfo.infoLink}
+                                                handleSave = {() => this.saveBook({
+                                                    title: book.volumeInfo.title,
+                                                    authors: book.volumeInfo.authors,
+                                                    image: book.volumeInfo.imageLinks === undefined ? "" : `${book.volumeInfo.imageLinks.thumbnail}`,
+                                                    description: book.volumeInfo.description,
+                                                    link: book.volumeInfo.infoLink
+                                                })}
+                                            />
+                                                
+                                            
                                         ))}
-                                    </List>
-                                ) : (<div className="noResults"> No Results to Display </div>)}
+                                    </div>
+                                ) : (<div className="noResults"> Nothing to display, search away! </div>)}
                             </Col>
                         </Row>
                     </Container>

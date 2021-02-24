@@ -37,7 +37,7 @@ export default class BookSpine extends Component {
                 width: "300px",
                 transition: "all .5s ease"
             }
-            
+
             coverContAnim = {
                 opacity: "1",
                 transitionDelay: ".4s",
@@ -63,8 +63,8 @@ export default class BookSpine extends Component {
 
 
         return (
-
             <div style={isOpenStyle} className="bookBox">
+
                 <div key={this.props._id} className="spineBod" onClick={this.handleSpineClick}>
                     <h3>
                         {this.props.title} by {this.props.authors}
@@ -87,7 +87,7 @@ export default class BookSpine extends Component {
                         </div>
                     </div>
                 </div>
-
+                
             </div>
         )
     }
