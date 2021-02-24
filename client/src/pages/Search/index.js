@@ -25,7 +25,7 @@ class Search extends Component {
                     books: res.data.items,
                     query: ""
                 })
-                
+
             )
             .catch(err => console.log(err));
     };
@@ -37,58 +37,70 @@ class Search extends Component {
     }
 
     render() {
+        let formStyle = {
+            borderBottom: "3px solid gray"
+        };
+
+        if (this.state.query.length > 0) {
+            formStyle = {borderBottom: "3px solid #324383"}
+        }
+
         return (
-            
-                    <Container fluid>
+
+            <Container fluid>
+                <Row>
+                    <Col size="md-12">
+                        <Jumbotron>
+                            <h1>Search</h1>
+                        </Jumbotron>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col size="md-12">
                         <Row>
-                            <Col size="md-12">
-                                <Jumbotron>
-                                    <h1>Search Google Books</h1>
-                                </Jumbotron>
-                            </Col>
+                            <form onSubmit={this.searchGoogle}  className="form-container">
+                                <input type="text" className="text-box" id="query" name="query" style = {formStyle} placeholder="Search for books to add to your shelf" onChange={this.handleInputChange} />
+                                <button type="submit" className="search-button">Search</button>
+                            </form>
                         </Row>
-                        <Row>
-                            <Col size="md-12">
-                                <div className="form-group">
-                                    <input type="text" className="form-control" id="query" name="query" placeholder="search" onChange={this.handleInputChange} />
-                                </div>
-                                <button type="submit" onClick={this.searchGoogle} className="search-button">Search</button>
-                            </Col>
-                        </Row>
-                        <Row>
-                            <Col size="md-12">
+                    </Col>
+                </Row>
+                <Row>
+                    <Col size="md-12">
+
+                        {this.state.books.length ? (
+                            
+                            <div>
                                 <div>
                                     <h1>Results: </h1>
                                 </div>
-                                {this.state.books.length ? (
-                                    <div>
-                                        {this.state.books.map(book => (
-                                            <SearchedBook 
-                                                key={book.id} 
-                                                title={book.volumeInfo.title}
-                                                authors={book.volumeInfo.authors}
-                                                image={book.volumeInfo.imageLinks === undefined ? "" : `${book.volumeInfo.imageLinks.thumbnail}`}
-                                                // error fixed thanks to https://stackoverflow.com/questions/51692323/google-books-api-cannot-read-property-thumbnail-of-undefined
-                                                description={book.volumeInfo.description}
-                                                link = {book.volumeInfo.infoLink}
-                                                handleSave = {() => this.saveBook({
-                                                    title: book.volumeInfo.title,
-                                                    authors: book.volumeInfo.authors,
-                                                    image: book.volumeInfo.imageLinks === undefined ? "" : `${book.volumeInfo.imageLinks.thumbnail}`,
-                                                    description: book.volumeInfo.description,
-                                                    link: book.volumeInfo.infoLink
-                                                })}
-                                            />
-                                                
-                                            
-                                        ))}
-                                    </div>
-                                ) : (<div className="noResults"> Nothing to display, search away! </div>)}
-                            </Col>
-                        </Row>
-                    </Container>
-                )
-          
+                                {this.state.books.map(book => (
+                                    <SearchedBook
+                                        key={book.id}
+                                        title={book.volumeInfo.title}
+                                        authors={book.volumeInfo.authors}
+                                        image={book.volumeInfo.imageLinks === undefined ? "" : `${book.volumeInfo.imageLinks.thumbnail}`}
+                                        // error fixed thanks to https://stackoverflow.com/questions/51692323/google-books-api-cannot-read-property-thumbnail-of-undefined
+                                        description={book.volumeInfo.description}
+                                        link={book.volumeInfo.infoLink}
+                                        handleSave={() => this.saveBook({
+                                            title: book.volumeInfo.title,
+                                            authors: book.volumeInfo.authors,
+                                            image: book.volumeInfo.imageLinks === undefined ? "" : `${book.volumeInfo.imageLinks.thumbnail}`,
+                                            description: book.volumeInfo.description,
+                                            link: book.volumeInfo.infoLink
+                                        })}
+                                    />
+
+
+                                ))}
+                            </div>
+                        ) : (<div className="noResults"> </div>)}
+                    </Col>
+                </Row>
+            </Container>
+        )
+
     }
 
 }

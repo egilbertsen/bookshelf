@@ -1,8 +1,28 @@
-.search-button {
-    border-radius: 5px;
-    background-color: #F8E9A1;
+.form-container {
+    width: 80%;
+    margin-left: auto;
+    margin-right:auto;
 }
 
+.text-box{
+    width: 80%;
+    border: none;
+}
+
+.text-box:focus {
+    outline: none;
+}
+
+.search-button {
+    border:none;
+    float: right;
+    width: 20%;
+    background-color: transparent;
+}
+
+.search-button:focus {
+    outline: none;
+}
 
 .noResults {
     padding-bottom: 100%;
