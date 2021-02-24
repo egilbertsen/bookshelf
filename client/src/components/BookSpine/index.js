@@ -20,6 +20,27 @@ export default class BookSpine extends Component {
     }
 
     render() {
+
+        // Formatting our author list for display
+
+        let formattedAuthors;
+
+        if (this.props.authors.length < 1) {
+            formattedAuthors = "Unknown"
+        } else if (this.props.authors.length === 1) {
+            formattedAuthors = this.props.authors;
+        } else if (this.props.authors.length === 2) {
+            const rawAuthors = this.props.authors;
+            formattedAuthors = rawAuthors.join(' and ')
+        } else if (this.props.authors.length > 2) {
+            const rawAuthors = this.props.authors;
+            const lastGuy = rawAuthors.pop();
+            formattedAuthors = rawAuthors.join(', ') + ', and ' + lastGuy;
+        }
+
+
+        // setting up conditional rendering for open state
+
         let isOpenStyle;
         let bookCoverAnimation;
         let coverContAnim;
@@ -67,7 +88,7 @@ export default class BookSpine extends Component {
 
                 <div key={this.props._id} className="spineBod" onClick={this.handleSpineClick}>
                     <h3>
-                        {this.props.title} by {this.props.authors}
+                        {this.props.title} by {formattedAuthors}
                     </h3>
                 </div>
 
@@ -79,7 +100,7 @@ export default class BookSpine extends Component {
                         <div className="coverText">
                             <Link to={this.props.link}>
                                 <h4>
-                                    {this.props.title} by {this.props.authors}
+                                    {this.props.title} by {formattedAuthors}
                                 </h4>
                             </Link>
                             <p><span className="desc">Description: </span>{this.props.description} </p>
@@ -87,7 +108,7 @@ export default class BookSpine extends Component {
                         </div>
                     </div>
                 </div>
-                
+
             </div>
         )
     }
