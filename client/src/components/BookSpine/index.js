@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import './style.css';
 import { Link } from "react-router-dom";
-import DeleteBtn from "../../components/DeleteBtn"
+import DeleteBtn from "../DeleteBtn";
+import { CgPushChevronRight } from 'react-icons/cg';
 
 export default class BookSpine extends Component {
 
@@ -44,6 +45,7 @@ export default class BookSpine extends Component {
         let isOpenStyle;
         let bookCoverAnimation;
         let coverContAnim;
+        let arrowAnimation;
 
         if (this.state.open) {
 
@@ -53,32 +55,40 @@ export default class BookSpine extends Component {
                 boxShadow: "rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px"
             }
 
+            arrowAnimation = {
+                transform: "rotate(-180deg)",
+                transition: "all 1s ease-in-out"
+            }
+
             bookCoverAnimation = {
-                height: "300px",
                 width: "300px",
-                transition: "all .5s ease"
+                transition: "all .5s ease-in-out"
             }
 
             coverContAnim = {
                 opacity: "1",
                 transitionDelay: ".4s",
-                transition: "all .5s ease"
+                transition: "all .5s ease-in-out"
             }
 
         } else {
-
+            
             isOpenStyle = { boxShadow: "none" }
+
+            arrowAnimation = {
+                transform: "rotate(0deg)",
+                transition: "all 1s ease-in-out"
+            }
 
             bookCoverAnimation = {
                 width: "000px",
-                height: "300px",
                 transitionDelay: ".4s",
-                transition: "all .5s ease"
+                transition: "all .5s ease-in-out"
             }
 
             coverContAnim = {
                 opacity: "0",
-                transition: "all .5s ease"
+                transition: "all .5s ease-in-out"
             }
         }
 
@@ -87,9 +97,16 @@ export default class BookSpine extends Component {
             <div style={isOpenStyle} className="bookBox">
 
                 <div key={this.props._id} className="spineBod" onClick={this.handleSpineClick}>
-                    <h3>
-                        {this.props.title} by {formattedAuthors}
-                    </h3>
+                    <div className ="spineWriting">
+                        <h3>
+                            {this.props.title} by {formattedAuthors}
+                        </h3>
+                    </div>
+                    <div className="spineArrowCont">
+                    
+                        <CgPushChevronRight className="spineArrow" style={arrowAnimation}> </CgPushChevronRight>
+
+                    </div>
                 </div>
 
                 <div className="coverBod" style={bookCoverAnimation}>

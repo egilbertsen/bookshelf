@@ -4,18 +4,15 @@ h3 {
 
 .bookBox {
     display: inline-block;
-    height: 300px;
+    height: 350px;
     border-radius: 6px;
-    margin-bottom: 0px;
+    margin-bottom: 20px;
 
     
 }
 
 .spineBod {
-    padding-top: 15px;
-    writing-mode: vertical-rl;
-    text-orientation: mixed;
-    height: 300px;
+    height: 350px;
     float: left;
     border-radius: 6px;
     border:1px solid #24305E;
@@ -23,13 +20,32 @@ h3 {
     color:#F8E9A1;
 }
 
-.coverBod {
+.spineWriting {
     height: 300px;
+    padding-top: 15px;
+    writing-mode: vertical-rl;
+}
+
+.spineArrowCont {
+    padding-top: 0px;
+    text-align: center;
+}
+
+.spineArrow {
+    font-size: 23px;
+}
+
+.coverBod {
+    height: 350px;
     overflow: scroll;
     padding-top: 15px;
     background-color: #d8ddf0;
-
 }
+
+.coverCont {
+    transition: "all .5s ease"
+}
+
 .desc {
     font-style: italic;
 }
