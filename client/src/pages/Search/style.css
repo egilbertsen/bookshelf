@@ -2,26 +2,48 @@
     width: 80%;
     margin-left: auto;
     margin-right:auto;
+    
 }
 
 .text-box{
     width: 80%;
+    height: 50px;
     border: none;
+ 
 }
 
 .text-box:focus {
     outline: none;
+    background-color: transparent;
 }
 
 .search-button {
-    border:none;
-    float: right;
     width: 20%;
+    text-align: left;
+    padding-left: 35px;
+    height: 50px;
+    cursor:pointer;
+    border:none;
+    color: #324383;
+    float: right;
+    font-size: 30px;
     background-color: transparent;
 }
 
 .search-button:focus {
+    color:#24305E;
     outline: none;
+}
+
+.search-button:hover {
+    color:#24305E;
+}
+
+.resultHeader {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 30px;
 }
 
 .noResults {

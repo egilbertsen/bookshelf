@@ -1,13 +1,14 @@
-
-
 .save-btn {
   float: right;
-  margin: 5px;
   color:#24305E;
-  font-style: italic;
-
+  
 }
 
 .save-btn:hover {
   background-color: #F8E9A1;
+}
+
+.saveIcon {
+  font-size: 30px;
+ 
 }
