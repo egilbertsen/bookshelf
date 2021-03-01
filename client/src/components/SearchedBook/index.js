@@ -5,15 +5,21 @@ import "./style.css";
 const SearchedBook = props => {
 
     let formattedAuthors;
+    let rawAuthors; 
+    let lastGuy;
+    
+    if (props.authors === undefined) {
+        rawAuthors = ["Unknown"]
+    } else {
+        rawAuthors = props.authors
+    }
 
-    if (props.authors.length < 2) {
-        formattedAuthors = props.authors;
-    } else if (props.authors.length === 2) {
-        const rawAuthors = props.authors;
+    if (rawAuthors.length < 2) {
+        formattedAuthors = rawAuthors;
+    } else if (rawAuthors.length === 2) {
         formattedAuthors = rawAuthors.join(' and ')
-    } else if (props.authors.length > 2) {
-        const rawAuthors = props.authors;
-        const lastGuy = rawAuthors.pop();
+    } else if (rawAuthors.length > 2) {
+        let lastGuy = rawAuthors.pop();
         formattedAuthors = rawAuthors.join(', ') + ', and ' + lastGuy;
     }
 
