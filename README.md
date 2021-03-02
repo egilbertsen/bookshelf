@@ -23,12 +23,12 @@ Please run an "npm install" command to ensure you have the appropriate dependenc
 
 The app has the following user interfaces:
 
- * ![Search Home](assets/SearchHome.png) - Default appearance for the search page
+ *  Default appearance for the search page:  ![Search Home](assets/SearchHome.png)
  
- * ![Search Results](assets/SearchResults.png) - Search results are dynamically rendered using information from the Google Books API
+ * Search results are dynamically rendered using information from the Google Books API: ![Search Results](assets/SearchResults.png)
  
- * ![Bookshelf](assets/Bookshelf.png) - User's saved book spines are rendered from Mongodb results. Spines can be clicked to trigger an animation that "opens" the book to provide additional info.
-
+ * User's saved book spines are rendered from Mongodb results. Spines can be clicked to trigger an animation that "opens" the book to provide additional info:
+![Bookshelf](assets/Bookshelf.png) 
 
 ## project story
 
